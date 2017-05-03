@@ -1,0 +1,24 @@
+{
+  "excludeScenes": [],
+  "includeAnySDK": false,
+  "includeSdk": [
+    "anysdk"
+  ],
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "cn.fashionsuperman.ifyoudog",
+  "startScene": "047b64e4-515d-4e0e-a661-de740ca179e5",
+  "title": "ifyoudog",
+  "webOrientation": "landscape",
+  "oauthLoginServer": "",
+  "appKey": "",
+  "appSecret": "",
+  "privateKey": "",
+  "renderMode": "0",
+  "inlineSpriteFrames": true,
+  "mergeStartScene": false
+}
