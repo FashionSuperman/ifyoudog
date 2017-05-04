@@ -2,11 +2,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        id: 0,
+        shopitemid: 0,
         itemimg: cc.Sprite,
-        itemname: cc.Label,
-        itemprice: cc.Label,
-        itemdes: cc.Label
+        commodityname: cc.Label,
+        price: cc.Label,
+        commoditydes: cc.Label
     },
 
     // use this for initialization
@@ -22,10 +22,10 @@ cc.Class({
      * 初始化数据
      */
     init : function(data){
-        this.id = data.id;
+        this.id = data.shopitemid;
         // this.itemimg.spriteFrame = data.itemimg;
-        this.itemname.string = data.itemname;
-        this.itemprice.string = data.itemprice;
-        this.itemdes.string = data.itemdes;
+        this.commodityname.string = data.commodityname;
+        this.price.string = data.price;
+        this.commoditydes.string = data.commoditydes;
     }
 });

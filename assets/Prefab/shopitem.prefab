@@ -788,17 +788,17 @@
       "__id__": 1
     },
     "_enabled": true,
-    "id": 0,
+    "shopitemid": 0,
     "itemimg": {
       "__id__": 3
     },
-    "itemname": {
+    "commodityname": {
       "__id__": 22
     },
-    "itemprice": {
+    "price": {
       "__id__": 6
     },
-    "itemdes": {
+    "commoditydes": {
       "__id__": 12
     }
   },

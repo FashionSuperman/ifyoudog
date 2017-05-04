@@ -181,34 +181,7 @@ cc.Class({
      * 商店按钮
      */
     shopbtn : function(){
-        var url = "http://localhost:8088/fs-game-dubbox-web/fs-game-service/Shop/getShopCommodities";
         cc.director.loadScene("shopscene");
-        //获取商店商品列表
-        var xhr = new XMLHttpRequest();
-        // if(xhr.overrideMimeType){  
-        //     xhr.overrideMimeType("application/json");  
-        // }  
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
-                var response = xhr.responseText;
-                console.log(response);
-            }
-        };
-        // var formData = new FormData();
-        // formData.append('currentPage', 1);
-        // formData.append('pageSize', 1);
-        var data = {
-            "currentPage":1,
-            "pageSize":10
-        };
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        var d = JSON.stringify(data);
-        xhr.send(d);
-        // xhr.send(data);
-        
-        // xhr.setRequestHeader("dataType","json");
-        // xhr.send(formData);
     }
 
 
