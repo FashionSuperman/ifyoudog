@@ -1,5 +1,6 @@
 var netTool = require("Net");
-var url_getShopCommodities = "http://localhost:8088/fs-game-dubbox-web/fs-game-service/Shop/getShopCommodities";
+var properties = require("Properties");
+var url_getShopCommodities = "http://192.168.1.103:8088/fs-game-dubbox-web/fs-game-service/Shop/getShopCommodities";
 cc.Class({
     extends: cc.Component,
 
@@ -24,9 +25,12 @@ cc.Class({
                     that.node.addChild(item);
                     item.getComponent("ShopItem").init(shopItems[i]);
                 }
+                // cc.find("Canvas").getComponent("ShopCanvas").showSuccess("获取数据成功!");
             }
         };
-        netTool.sendRequest(url_getShopCommodities,method,data,callback);
+        netTool.sendRequest(properties.url.url_getShopCommodities,method,data,callback);
+
+        
     },
 
     // called every frame, uncomment this function to activate update callback

@@ -22,7 +22,7 @@ cc.Class({
      * 初始化数据
      */
     init : function(data){
-        this.id = data.shopitemid;
+        this.shopitemid = data.shopitemid;
         // this.itemimg.spriteFrame = data.itemimg;
         this.commodityname.string = data.commodityname;
         this.price.string = data.price;

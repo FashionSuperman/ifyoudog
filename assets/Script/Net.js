@@ -8,9 +8,9 @@ function sendRequest(path,method,data,callback){
         if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
             var response = xhr.responseText;
             // console.log(response);
-               if(typeof callback == "function"){
-                   callback(response);
-                }
+            if(typeof callback == "function"){
+                callback(response);
+            }
             
         }
     };

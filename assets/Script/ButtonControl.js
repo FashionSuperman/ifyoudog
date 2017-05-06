@@ -182,7 +182,12 @@ cc.Class({
      */
     shopbtn : function(){
         cc.director.loadScene("shopscene");
+    },
+    /**
+     * 返回开屏页
+     */
+    backToSplashScene : function(event){
+        cc.director.loadScene("splashscene");
     }
-
 
 });
