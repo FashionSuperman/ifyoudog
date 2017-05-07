@@ -4,9 +4,9 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        shopItemPre:{
-            default : null,
-            type : cc.Prefab,
+        packageItemPre : {
+            type:cc.Prefab,
+            default:null
         }
     },
 
@@ -14,22 +14,22 @@ cc.Class({
     onLoad: function () {
         var that = this;
         var method = "POST";
-        var data = {};
+        var data = {
+            "userid":1
+        };
         var callback = function(response){
             var resObj = JSON.parse(response);
             if(resObj.code == "200"){
-                var shopItems = resObj.responseData.rows;
-                for(var i = 0 ; i < shopItems.length ; i++){
-                    var item = cc.instantiate(that.shopItemPre);
+                var packageItems = resObj.responseData.rows;
+                for(var i = 0 ; i < packageItems.length ; i++){
+                    var item = cc.instantiate(that.packageItemPre);
                     that.node.addChild(item);
-                    item.getComponent("ShopItem").init(shopItems[i]);
+                    item.getComponent("PackageItem").init(packageItems[i]);
                 }
                 // cc.find("Canvas").getComponent("ShopCanvas").showSuccess("获取数据成功!");
             }
         };
-        netTool.sendRequest(properties.url.url_getShopCommodities,method,data,callback);
-
-        
+        netTool.sendRequest(properties.url.url_getUserPackageList,method,data,callback);
     },
 
     // called every frame, uncomment this function to activate update callback

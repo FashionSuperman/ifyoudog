@@ -172,10 +172,10 @@ cc.Class({
     },
 
     /**
-     * 购买
+     * 背包按钮
      */
-    buyShopItem : function(){
-
+    packagebtn : function(){
+        cc.director.loadScene("packagescene");
     },
     /**
      * 商店按钮
