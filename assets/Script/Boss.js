@@ -54,6 +54,8 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        this.bossv = 6;
+
         this.windowWidth = this.node.parent.width;
         this.windowHeight = this.node.parent.height;
         this.playerNode = cc.find("Canvas/roleNode/role");

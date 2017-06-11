@@ -96,8 +96,8 @@ cc.Class({
             this.overContainer.y = 514;
             cc.game.dogover = false;
             cc.game.gameovershow = false;
-            cc.game.restart ();
-            // cc.director.loadScene("playscene");
+            // cc.game.restart ();
+            cc.director.loadScene("splashscene");
         },0.2);
     },
 
@@ -115,6 +115,7 @@ cc.Class({
 
     runPlayScene : function(){
         cc.director.loadScene("playscene");
+        // cc.director.runSceneImmediate("playscene");
     },
 
     dogyes:function(event){

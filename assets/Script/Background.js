@@ -7,6 +7,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+      this.bgv = 6;
       this.parent = this.node.parent;
     },
 
