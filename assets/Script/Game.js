@@ -249,29 +249,29 @@ cc.Class({
         
 
         //绑定系统back,home事件
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        //绑定后台到前台事件
-        cc.game.on(cc.game.EVENT_SHOW, function () {
-            if(cc.game.isPaused()){
-                cc.game.resume();
-                cc.game.music = true;
-                cc.audioEngine.playMusic(this.back,true);
-            }
-        });
-        cc.game.on(cc.game.EVENT_HIDE, function () {
-            cc.audioEngine.pauseMusic();
-            cc.audioEngine.pauseAllEffects();
-            cc.game.music = false;
-            // cc.game.dogover = true;
-            cc.game.pause();
-        });
+        // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        // //绑定后台到前台事件
+        // cc.game.on(cc.game.EVENT_SHOW, function () {
+        //     if(cc.game.isPaused()){
+        //         cc.game.resume();
+        //         cc.game.music = true;
+        //         cc.audioEngine.playMusic(this.back,true);
+        //     }
+        // });
+        // cc.game.on(cc.game.EVENT_HIDE, function () {
+        //     cc.audioEngine.pauseMusic();
+        //     cc.audioEngine.pauseAllEffects();
+        //     cc.game.music = false;
+        //     // cc.game.dogover = true;
+        //     cc.game.pause();
+        // });
         
         //TODO 产生第一列boss
         let wholePrefads = [];
         wholePrefads.push(this.shitPrefab);
         wholePrefads.push(this.dogFoodPrefab);
         wholePrefads.push(this.chocolatePrefab);
-        let nums = [20,20,20];
+        let nums = [10,10,10];
         // let indexNames = ["shit" , "dogfood" , "chocolate"];
         bossPool.init(wholePrefads,nums);
         this.bossPool = bossPool;

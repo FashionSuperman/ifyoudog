@@ -95,6 +95,10 @@ cc.Class({
     },
     onCollisionEnter: function (other, self) {
 
+        if(cc.game.dogover){
+            return;
+        }
+
         // this.scoreContent.string = self.node._name;
         //吃到该吃的加分，否则，游戏结束
         let currentBossName = self.node._name;

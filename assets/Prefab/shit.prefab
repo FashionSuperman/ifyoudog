@@ -12,44 +12,9 @@
     "__type__": "cc.Node",
     "_name": "shit",
     "_objFlags": 0,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
     "_parent": null,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 60,
-      "height": 60
-    },
     "_children": [],
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": -371,
-      "y": 251
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
     "_tag": -1,
-    "_opacityModifyRGB": false,
-    "_reorderChildDirty": false,
-    "_id": "",
     "_active": true,
     "_components": [
       {
@@ -65,6 +30,40 @@
     "_prefab": {
       "__id__": 5
     },
+    "_id": "",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 60,
+      "height": 60
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -371,
+      "y": 251
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
     "groupIndex": 0
   },
   {
@@ -76,7 +75,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "e74267c8-c364-4d7e-a07d-a1e92ab9cf31"
+      "__uuid__": "aea9979c-bfb7-42de-98bd-bc096bf21871"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -91,7 +90,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "8a3074a0-18e8-4456-8fd3-2008686bdafb"
+    }
   },
   {
     "__type__": "cc.CircleCollider",
@@ -118,10 +119,19 @@
     },
     "_enabled": true,
     "playerNode": null,
-    "scoreContent": null,
     "windowWidth": 0,
     "windowHeight": 0,
-    "bossv": 6
+    "bossv": 6,
+    "chocolate": "chocolate",
+    "dogFood": "dogfood",
+    "shit": "shit",
+    "rolePowerBar": null,
+    "powerInterval": 0.05,
+    "overContainer": null,
+    "overBack": null,
+    "overTitle": null,
+    "disScore": null,
+    "overContent": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -131,6 +141,7 @@
     "asset": {
       "__uuid__": "f5f13cd8-f307-41db-95c7-fb97c5ddbc97"
     },
-    "fileId": "c9f78JN8aND/734EHqkRpnW"
+    "fileId": "c9f78JN8aND/734EHqkRpnW",
+    "sync": false
   }
 ]

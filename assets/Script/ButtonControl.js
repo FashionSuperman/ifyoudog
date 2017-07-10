@@ -48,9 +48,13 @@ cc.Class({
     onLoad: function () {
         cc.game.music = true;
          //back music
-        cc.audioEngine.playMusic(this.back,true);
+        if(this.back != null){
+            cc.audioEngine.playMusic(this.back,true);
+            this.overContainer = cc.find("Canvas/overcontainer");
+         }
+        
 
-        this.overContainer = cc.find("Canvas/overcontainer");
+        
         // this.overBack = cc.find("Canvas/overcontainer/overback");
         
     },
