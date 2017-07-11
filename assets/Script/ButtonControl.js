@@ -1,3 +1,4 @@
+var properties = require("Properties");
 cc.Class({
     extends: cc.Component,
 
@@ -193,6 +194,29 @@ cc.Class({
      */
     backToSplashScene : function(event){
         cc.director.loadScene("splashscene");
+    },
+
+    /**
+     * 微信登录
+     */
+    wxlogin : function(event){
+        window.location.href = properties.url.wxlogin;
+    },
+
+    /**
+     * 微信支付按钮
+     */
+    wxpaybutton : function(event){
+        //金额弹窗
+        
+    },
+
+    /**
+     * 调用微信支付接口
+     */
+    wxpay : function(){
+
     }
+
 
 });
