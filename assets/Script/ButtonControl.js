@@ -226,31 +226,31 @@ cc.Class({
        var buttonNmae = node.name;
        switch(buttonNmae){
             case "one":
-
+                this.wxpayCommon(1);
                 break;
             case "two":
-
+                this.wxpayCommon(2);
                 break;
             case "three":
-
+                this.wxpayCommon(3);
                 break;
             case "four":
-
+                this.wxpayCommon(4);
                 break;
             case "five":
-
+                this.wxpayCommon(5);
                 break;
             case "fourty":
-
+                this.wxpayCommon(40);
                 break;
             case "sixty":
-
+                this.wxpayCommon(60);
                 break;
             case "eighty":
-
+                this.wxpayCommon(80);
                 break;
             case "onehundred":
-
+                this.wxpayCommon(100);
                 break;
             default:
                 break;         
@@ -298,7 +298,7 @@ cc.Class({
             if (res.err_msg == "get_brand_wcpay_request:ok") {// 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回
                                                             // ok，但并不保证它绝对可靠
                 //重新请求游戏界面
-                
+
 
             }
         });
