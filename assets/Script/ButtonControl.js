@@ -278,7 +278,7 @@ cc.Class({
                 "total_fee" : paycount,
                 "orderid" : orderid
             };
-            sendRequest(properties.url.applyWXPayUrl, method, ApplyWXPayUrlData, function(data) {
+            netTool.endRequest(properties.url.applyWXPayUrl, method, ApplyWXPayUrlData, function(data) {
                 data = JSON.parse(data);
                 
                 
