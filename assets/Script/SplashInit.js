@@ -12,6 +12,14 @@ cc.Class({
             default : null,
             type : cc.Label,
         },
+        fundstitle : {
+            default : null,
+            type : cc.Label,
+        },
+        funds : {
+            default : null,
+            type : cc.Label,
+        }
     },
 
     // use this for initialization
@@ -34,8 +42,12 @@ cc.Class({
 
                     that.maxscoretitle.string = "最高分";
                     that.maxscore.string = score;
+
+                    that.fundstitle.string = "资产";
+                    that.funds.string = funds;
                 }else{
                     that.maxscoretitle.string = "";
+                    that.fundstitle.string = "";
                 }
 
                 
