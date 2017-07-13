@@ -1,4 +1,4 @@
-
+var properties = require("Properties");
 /**
  * ajax方法封装
  */
@@ -12,6 +12,8 @@ function sendRequest(path,method,data,callback){
                 callback(response);
             }
             
+        }else if(xhr.readyState == 4 && xhr.status == 0){
+            window.location.href = properties.url.wxlogin;
         }
     };
     xhr.open(method, path, true);
