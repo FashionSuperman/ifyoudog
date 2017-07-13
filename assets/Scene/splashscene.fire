@@ -3705,8 +3705,10 @@
       "__id__": 92
     },
     "_enabled": true,
-    "isAlignOnce": true,
-    "_target": null,
+    "isAlignOnce": false,
+    "_target": {
+      "__id__": 91
+    },
     "_alignFlags": 8,
     "_left": 142.185,
     "_right": 0,
@@ -4346,8 +4348,10 @@
       "__id__": 109
     },
     "_enabled": true,
-    "isAlignOnce": true,
-    "_target": null,
+    "isAlignOnce": false,
+    "_target": {
+      "__id__": 108
+    },
     "_alignFlags": 8,
     "_left": 82.25999999999999,
     "_right": 0,
@@ -4471,7 +4475,7 @@
       "__id__": 113
     },
     "_enabled": true,
-    "isAlignOnce": true,
+    "isAlignOnce": false,
     "_target": null,
     "_alignFlags": 8,
     "_left": 89,
