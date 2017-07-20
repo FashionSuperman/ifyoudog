@@ -27,8 +27,28 @@ cc.Class({
                 // cc.find("Canvas").getComponent("ShopCanvas").showSuccess("获取数据成功!");
             }
         };
-        netTool.sendRequest(properties.url.url_getShopCommodities,method,data,callback);
+        // netTool.sendRequest(properties.url.url_getShopCommodities,method,data,callback);
 
+        //TODO
+        var item1 = cc.instantiate(that.shopItemPre);
+        that.node.addChild(item1);
+        var testdata = {
+            "shopitemid":1,
+            "commodityname":"测试1",
+            "price":"222",
+            "commoditydes":"测试1"
+        }
+        item1.getComponent("ShopItem").init(testdata);
+
+        var item2 = cc.instantiate(that.shopItemPre);
+        that.node.addChild(item2);
+        var testdata2 = {
+            "shopitemid":2,
+            "commodityname":"测试2",
+            "price":"223",
+            "commoditydes":"测试2"
+        }
+        item2.getComponent("ShopItem").init(testdata2);
         
     },
 

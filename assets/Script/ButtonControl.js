@@ -314,6 +314,54 @@ cc.Class({
         } else {
             this.onBridgeReady(data);
         }
+    },
+
+
+
+    buynumyes : function(){
+        //获取输入框的购买数量
+        var buynum = cc.find("Canvas/buynumnode/buynumback/buynumedit").getComponent(cc.EditBox).string;
+        
+    },
+
+    buynumno : function(){
+        var buynumnodeNode = cc.find("Canvas/buynumnode");
+
+        buynumnodeNode.x = 1128;
+        buynumnodeNode.y = 119;
+        buynumnodeNode.zIndex = 10;
+    },
+
+    confirmyes : function(){
+
+    },
+
+
+    confirmno : function(){
+        var buyconfirmnode = cc.find("Canvas/buyconfirmnode");
+
+        buyconfirmnode.x = 539;
+        buyconfirmnode.y = 822;
+        buyconfirmnode.zIndex = 10;
+    },
+
+
+    buy : function(num){
+        //调用购买
+        var shopitemCom = event.target.parent.getComponent("ShopItem");
+        var data = {
+            "shopitemid":shopitemCom.shopitemid,
+            "number":num
+        };
+        var callback = function(response){
+            var resObj = JSON.parse(response);
+            if(resObj.code == "200"){
+                cc.find("Canvas").getComponent("ShopCanvas").showSuccess("购买成功!");
+            }else{
+                cc.find("Canvas").getComponent("ShopCanvas").showSuccess(resObj.message);
+            }
+        };
+        netTool.sendRequest(properties.url.buyUrl,"POST",data,callback);
     }
 
 

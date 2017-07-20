@@ -8,4 +8,7 @@ url.wxlogin = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx32431
 url.generateUserOrder = url.serverPath + "Order/generateUserOrder";
 url.applyWXPayUrl = url.serverPath + "DogBiz/applyWXPay";
 
+
+url.buyShopCommodity = url.serverPath + "Shop/buyShopCommodity";
+
 module.exports.url = url;
