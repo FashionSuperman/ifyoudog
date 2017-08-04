@@ -24,11 +24,12 @@ cc.Class({
         widgetSuccess.target = that.node;
         widgetSuccess.isAlignBottom = true;
         widgetSuccess.bottom = 100;
+        successPrompt.zIndex = 20;
         widgetSuccess.updateAlignment();
         var aniSuccess = successPrompt.getComponent(cc.Animation);
         aniSuccess.play("prompt");
         this.scheduleOnce(function(){
             widgetSuccess.bottom = -1000;
-        },0.5);
+        },1);
     }
 });

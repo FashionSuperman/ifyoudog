@@ -11,4 +11,12 @@ url.applyWXPayUrl = url.serverPath + "DogBiz/applyWXPay";
 
 url.buyShopCommodity = url.serverPath + "Shop/buyShopCommodity";
 
+
+url.judgecanplay = url.serverPath + "DogBiz/judgeCanPlay";
+
+
+url.getWxConfigParam = url.serverPath + "DogBiz/getWxConfigParam";
+
+url.shareSuccess = url.serverPath + "DogBiz/shareSuccess";
+
 module.exports.url = url;

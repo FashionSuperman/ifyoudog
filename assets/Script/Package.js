@@ -15,7 +15,7 @@ cc.Class({
         var that = this;
         var method = "POST";
         var data = {
-            "userid":1
+            
         };
         var callback = function(response){
             var resObj = JSON.parse(response);

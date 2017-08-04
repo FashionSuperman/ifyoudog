@@ -46,6 +46,11 @@ cc.Class({
         wxpaynode:{
             default : null,
             type : cc.Node
+        },
+
+        promptWindow:{
+            default : null,
+            type : cc.Prefab,
         }
 
     },
@@ -124,7 +129,50 @@ cc.Class({
     },
 
     runPlayScene : function(){
-        cc.director.loadScene("playscene");
+        var that = this;
+        //判断用户是否可玩
+        var judgecanplayData = {
+
+        };
+        netTool.sendRequest(properties.url.judgecanplay,"POST",judgecanplayData,function(data){
+            var resObj = JSON.parse(data);
+            if(resObj.code == "200"){
+                var status = resObj.responseData.status;
+                if("1" == status){//可以玩
+                    cc.director.loadScene("playscene");
+                }else if("2" == status){//没有登录,提示登录可以获得更多试玩次数
+                    
+                    var promptWindow = cc.instantiate(that.promptWindow);
+                    promptWindow.getComponent("PromptWindow").init({"text":"觉得好玩呀,点击有上角登录继续玩吧"});
+                    promptWindow.x = 0;
+                    promptWindow.y = 0;
+                    promptWindow.zIndex = 10;
+
+
+                    that.node.addChild(promptWindow);
+
+
+
+
+                }else if("3" == status){//已登录,但是次数用完,提示用户12小时后赠送,或者可以购买
+                   
+
+                    var promptWindow = cc.instantiate(that.promptWindow);
+                    promptWindow.getComponent("PromptWindow").init({"text":"次数用完了,12小时之后赠送,也可以点击充值然后去商店购买哦"});
+                    promptWindow.x = 0;
+                    promptWindow.y = 0;
+                    promptWindow.zIndex = 10;
+
+
+                    that.node.addChild(promptWindow);
+
+                }
+            }
+            
+        });
+        
+
+        
         // cc.director.runSceneImmediate("playscene");
     },
 
@@ -321,7 +369,12 @@ cc.Class({
     buynumyes : function(){
         //获取输入框的购买数量
         var buynum = cc.find("Canvas/buynumnode/buynumback/buynumedit").getComponent(cc.EditBox).string;
-        
+        //调用购买
+        if(!/^\d+$/.test(buynum)){
+            cc.find("Canvas").getComponent("ShopCanvas").showSuccess("弄啥嘞?数量哦!");
+        }
+        buynum = parseInt(buynum);
+        this.buy(buynum);
     },
 
     buynumno : function(){
@@ -333,7 +386,8 @@ cc.Class({
     },
 
     confirmyes : function(){
-
+        //调用购买
+        this.buy(1);
     },
 
 
@@ -348,20 +402,103 @@ cc.Class({
 
     buy : function(num){
         //调用购买
-        var shopitemCom = event.target.parent.getComponent("ShopItem");
+        // var shopitemCom = event.target.parent.getComponent("ShopItem");
         var data = {
-            "shopitemid":shopitemCom.shopitemid,
-            "number":num
+            "shopitemid": cc.game.shopItemId,
+            "number":cc.game.buynum
         };
+        var that = this;
         var callback = function(response){
             var resObj = JSON.parse(response);
             if(resObj.code == "200"){
+                that.confirmno();
+                that.buynumno();
                 cc.find("Canvas").getComponent("ShopCanvas").showSuccess("购买成功!");
+                
             }else{
                 cc.find("Canvas").getComponent("ShopCanvas").showSuccess(resObj.message);
             }
         };
         netTool.sendRequest(properties.url.buyUrl,"POST",data,callback);
+    },
+
+
+
+    buynumselect : function(event){
+       var node = event.target;
+       var buttonNmae = node.name;
+       switch(buttonNmae){
+            case "one":
+                cc.game.buynum = 1;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "two":
+                cc.game.buynum = 2;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "three":
+                cc.game.buynum = 3;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "four":
+                cc.game.buynum = 4;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "five":
+                cc.game.buynum = 5;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "six":
+                cc.game.buynum = 6;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "seven":
+                cc.game.buynum = 7;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "eight":
+                cc.game.buynum = 8;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "nine":
+                cc.game.buynum = 9;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "ten":
+                cc.game.buynum = 10;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "twenty":
+                cc.game.buynum = 20;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            case "thirty":
+                cc.game.buynum = 30;
+                this.buynumno();
+                this.showbuyconfirmwindow();
+                break;
+            default:
+                break;         
+       }
+    },
+
+    showbuyconfirmwindow : function(){
+        var buyconfirmnode = cc.find("Canvas/buyconfirmnode");
+
+        buyconfirmnode.x = 0;
+        buyconfirmnode.y = 0;
+        buyconfirmnode.zIndex = 10;
     }
 
 

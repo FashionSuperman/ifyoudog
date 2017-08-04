@@ -17,11 +17,14 @@ cc.Class({
 
        var shopItemId = shopItemCom.shopitemid;
 
+       cc.game.shopItemId = shopItemId;
+
        if(1 == shopItemId){//单次购买
            //弹出购买数量窗口
            this.showbuynumwindow();
        }else if(2 == shopItemId){//终生会员
            //弹出确认购买窗口
+           cc.game.buynum = 1;
            this.showbuyconfirmwindow();
        }
 

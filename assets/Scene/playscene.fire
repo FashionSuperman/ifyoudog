@@ -1282,7 +1282,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 1,
-      "y": -72
+      "y": -52
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1300,9 +1300,9 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 16,
-    "_fontSize": 16,
-    "_lineHeight": 40,
+    "_actualFontSize": 20,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1767,7 +1767,7 @@
       "__uuid__": "2021133c-9b4a-4d47-bb30-faaae9a16f7d"
     },
     "dead": {
-      "__uuid__": "b335cd96-fdc5-4248-899b-842ee9c46b27"
+      "__uuid__": "99450195-e284-4236-9c9b-74e4c2190534"
     },
     "gaint": {
       "__uuid__": "227cf7dc-f801-478f-bd6d-d44b5d35eb33"
@@ -1777,7 +1777,9 @@
     },
     "leavecontent": {
       "__id__": 48
-    }
+    },
+    "wxpaynode": null,
+    "promptWindow": null
   },
   {
     "__type__": "cc.Node",
@@ -2896,7 +2898,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 215.88,
+      "width": 246.72,
       "height": 40
     },
     "_rotationX": 0,
@@ -2924,8 +2926,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 28,
-    "_fontSize": 28,
+    "_actualFontSize": 32,
+    "_fontSize": 32,
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
