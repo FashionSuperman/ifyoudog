@@ -159,6 +159,16 @@ cc.Class({
         this.overTitle.getComponent(cc.Sprite).spriteFrame = roleCom.spriteFrames[roleCom.currentRoleId];
         //距离
         this.disScore.getComponent(cc.Label).string = cc.game.currentDis + "m";
+
+        //判断距离分数是否刷新纪录,刷新,后台纪录
+        if( (cc.game.currentDis > cc.game.score) && cc.game.login){
+            //纪录新的分数
+            cc.game.score = cc.game.currentDis;
+            netTool.sendRequest(properties.url.url.updateUserScore,"POST",{"score":cc.game.currentDis},function(data){
+
+            });
+        }
+
         let currentBossName = cc.game.currentBossName;
         //说明
         var deadCauseString = "";

@@ -555,8 +555,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -525,
-      "y": -300
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -580,7 +580,9 @@
     "wxpaynode": {
       "__id__": 14
     },
-    "promptWindow": null
+    "promptWindow": {
+      "__uuid__": "fd019891-0a19-4cd1-92b0-6afc255870d1"
+    }
   },
   {
     "__type__": "cc.Node",

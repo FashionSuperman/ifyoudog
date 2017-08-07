@@ -89,13 +89,19 @@ cc.Class({
         var getUserInfoCallback = function(response){
             var resObj = JSON.parse(response);
             if(resObj && resObj.code == "200"){
+                
+
                 var userInfo = resObj.responseData;
 
                 if(userInfo.nickname){
+                    cc.game.login = true;
+
                     var nickname = userInfo.nickname;
                     var headimgurl = userInfo.headimgurl;
                     var funds = userInfo.funds;
-                    var score = userInfo.score;
+                    var score = parseInt(userInfo.score);
+
+                    cc.game.score = score;
 
                     that.maxscoretitle.string = "最高分";
                     that.maxscore.string = score;

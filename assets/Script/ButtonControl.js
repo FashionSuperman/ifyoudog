@@ -77,24 +77,85 @@ cc.Class({
 
 
     playCallBack : function(event){
-        var node = event.target;
-        var button = node.getComponent(cc.Button);
-        var anim = this.overBack.getComponent(cc.Animation);
-        anim.stop();
-        //stop all music
-        cc.audioEngine.stopAllEffects ();
+        var that = this;
+        //判断用户是否可玩
+        var judgecanplayData = {
 
-        anim.play('gameplay');
-        this.scheduleOnce(function(){
-            this.overContainer.x = -1666;
-            this.overContainer.y = 514;
-            cc.director.loadScene("playscene");
-            cc.game.dogover = false;
-            // cc.game.restart ();
-            cc.game.gameovershow = false;
-        },0.2);
+        };
+        netTool.sendRequest(properties.url.judgecanplay,"POST",judgecanplayData,function(data){
+            var resObj = JSON.parse(data);
+            if(resObj.code == "200"){
+                var status = resObj.responseData.status;
+                if("1" == status){//可以玩
+                    var node = event.target;
+                    var button = node.getComponent(cc.Button);
+                    var anim = that.overBack.getComponent(cc.Animation);
+                    anim.stop();
+                    //stop all music
+                    cc.audioEngine.stopAllEffects ();
+
+                    anim.play('gameplay');
+                    that.scheduleOnce(function(){
+                        that.overContainer.x = -1666;
+                        that.overContainer.y = 514;
+                        cc.director.loadScene("playscene");
+                        cc.game.dogover = false;
+                        // cc.game.restart ();
+                        cc.game.gameovershow = false;
+                    },0.2);
+                }else if("2" == status){//没有登录,提示登录可以获得更多试玩次数
+                    that.overContainer.x = -1666;
+                    that.overContainer.y = 514;
+
+                    var promptWindow = cc.instantiate(that.promptWindow);
+                    promptWindow.getComponent("PromptWindow").init({"text":"觉得好玩呀,点击有上角登录继续玩吧"});
+                    promptWindow.x = 0;
+                    promptWindow.y = 0;
+                    promptWindow.zIndex = 10;
+
+
+                    that.node.addChild(promptWindow);
+
+
+
+
+                }else if("3" == status){//已登录,但是次数用完,提示用户12小时后赠送,或者可以购买
+                   that.overContainer.x = -1666;
+                   that.overContainer.y = 514;
+
+                    var promptWindow = cc.instantiate(that.promptWindow);
+                    promptWindow.getComponent("PromptWindow").init({"text":"次数用完了,12小时之后赠送,也可以点击充值然后去商店购买哦,很便宜的呦"});
+                    promptWindow.x = 0;
+                    promptWindow.y = 0;
+                    promptWindow.zIndex = 10;
+
+
+                    that.node.addChild(promptWindow);
+
+                }
+            }
+            
+        });
+
+
+
         
         
+        
+    },
+
+
+    temptest : function(){
+
+        var that = this;
+        var promptWindow = cc.instantiate(that.promptWindow);
+        promptWindow.getComponent("PromptWindow").init({"text":"次数用完了,12小时之后赠送,也可以点击充值然后去商店购买哦"});
+        promptWindow.x = 0;
+        promptWindow.y = 0;
+        promptWindow.zIndex = 10;
+
+
+        that.node.addChild(promptWindow);
     },
 
     replayCallBack : function(event){
@@ -405,7 +466,7 @@ cc.Class({
         // var shopitemCom = event.target.parent.getComponent("ShopItem");
         var data = {
             "shopitemid": cc.game.shopItemId,
-            "number":cc.game.buynum
+            "number":cc.game.buynum * 10
         };
         var that = this;
         var callback = function(response){

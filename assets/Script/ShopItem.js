@@ -23,9 +23,21 @@ cc.Class({
      */
     init : function(data){
         this.shopitemid = data.shopitemid;
+
+        
+
         // this.itemimg.spriteFrame = data.itemimg;
         this.commodityname.string = data.commodityname;
-        this.price.string = data.price;
+
+        if(this.shopitemid == 1){
+            this.commodityname.string = data.commodityname + "  10颗";
+            this.price.string = data.price * 10;
+        }else{
+            this.commodityname.string = data.commodityname;
+            this.price.string = data.price;
+        }
+
+        
         this.commoditydes.string = data.commoditydes;
     }
 });

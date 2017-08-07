@@ -19,4 +19,6 @@ url.getWxConfigParam = url.serverPath + "DogBiz/getWxConfigParam";
 
 url.shareSuccess = url.serverPath + "DogBiz/shareSuccess";
 
+url.updateUserScore = url.serverPath + "Rank/updateUserScore";
+
 module.exports.url = url;
