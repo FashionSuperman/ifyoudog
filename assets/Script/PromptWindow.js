@@ -1,3 +1,4 @@
+var properties = require("Properties");
 cc.Class({
     extends: cc.Component,
 
@@ -34,6 +35,13 @@ cc.Class({
     },
 
     close : function(event){
-        this.node.removeFromParent();
+
+        if(cc.game.lognow){
+            window.location.href = properties.url.wxlogin;
+        }else{
+            this.node.removeFromParent();
+        }
+
+        
     }
 });

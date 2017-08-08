@@ -104,6 +104,8 @@ cc.Class({
                         cc.game.gameovershow = false;
                     },0.2);
                 }else if("2" == status){//没有登录,提示登录可以获得更多试玩次数
+                    cc.game.lognow = true;
+
                     that.overContainer.x = -1666;
                     that.overContainer.y = 514;
 
