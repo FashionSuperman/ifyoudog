@@ -30,8 +30,8 @@ cc.Class({
         this.commodityname.string = data.commodityname;
 
         if(this.shopitemid == 1){
-            this.commodityname.string = data.commodityname + "  10颗";
-            this.price.string = data.price * 10;
+            this.commodityname.string = data.commodityname + "  80颗";
+            this.price.string = data.price * 80;
         }else{
             this.commodityname.string = data.commodityname;
             this.price.string = data.price;

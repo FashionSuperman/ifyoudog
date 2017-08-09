@@ -38,9 +38,15 @@ cc.Class({
 
         if(cc.game.lognow){
             window.location.href = properties.url.wxlogin;
+        }else if(cc.game.paynow){
+            cc.game.paynow = false;
+            cc.director.loadScene("splashscene");
+            cc.game.showpaywindow = true;
         }else{
             this.node.removeFromParent();
         }
+
+
 
         
     }

@@ -29,6 +29,15 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
 
+        cc.director.preloadScene("playscene", function () {
+            // cc.log("Next scene preloaded");
+        });
+
+        if(cc.game.showpaywindow){
+            cc.find("Canvas/controlnode").getComponent("ButtonControl").wxpaybutton();
+            cc.game.showpaywindow = false;
+        }
+
         //初始化微信工具
 
         var shareSuccessCallback = function(response){//判断奖励是否发放成功,给用户相应提示
@@ -57,9 +66,24 @@ cc.Class({
                         "cancel" : function(){}
                     });
 
-                    // wx.onMenuShareAppMessage({
+                    wx.onMenuShareAppMessage({
+                        title: "如果我是一只狗最远可以走 " + (cc.game.score ? cc.game.score : 0 ) + " 米,你能吗?",
 
-                    // });
+                        desc: "如果你是一只狗",
+
+                        link: "http://www.fashionsuperman.top/ifyoudoggg/index.html",
+
+                        imgUrl: "http://www.fashionsuperman.top/ifyoudoggg/sharepic.png",
+
+                        type: 'link',
+
+                        dataUrl: '',
+
+                        success: function () {
+                        },
+                        cancel: function () {
+                        }
+                    });
                 });
                 wx.config(resGetWxConfigParam);
 

@@ -3,6 +3,8 @@
         deadCauses_person_gouliang = ["为啥抢旺财的狗粮？","恩，狗粮真好吃"],
         deadCauses_singledog_shit = ["天啦噜，真把自己当狗了？","屎里有毒!!","旺财都不吃屎了，你还吃?"],
         deadCauses_singledog_chocolate = ["一只单身狗还有脸吃巧克力？","乖，这个太甜了，不适合你"];
+var properties = require("Properties");
+var netTool = require("Net");
 cc.Class({
     extends: cc.Component,
 
@@ -164,7 +166,7 @@ cc.Class({
         if( (cc.game.currentDis > cc.game.score) && cc.game.login){
             //纪录新的分数
             cc.game.score = cc.game.currentDis;
-            netTool.sendRequest(properties.url.url.updateUserScore,"POST",{"score":cc.game.currentDis},function(data){
+            netTool.sendRequest(properties.url.updateUserScore,"POST",{"score":cc.game.currentDis},function(data){
 
             });
         }

@@ -122,6 +122,8 @@ cc.Class({
 
 
                 }else if("3" == status){//已登录,但是次数用完,提示用户12小时后赠送,或者可以购买
+                    cc.game.paynow = true;
+
                    that.overContainer.x = -1666;
                    that.overContainer.y = 514;
 
@@ -468,7 +470,7 @@ cc.Class({
         // var shopitemCom = event.target.parent.getComponent("ShopItem");
         var data = {
             "shopitemid": cc.game.shopItemId,
-            "number":cc.game.buynum * 10
+            "number":cc.game.buynum * 88
         };
         var that = this;
         var callback = function(response){
